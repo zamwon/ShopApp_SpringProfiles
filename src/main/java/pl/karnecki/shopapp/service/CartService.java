@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.karnecki.shopapp.model.Product;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -17,13 +19,16 @@ public class CartService {
     public CartService() {
 
         Random random = new Random();
-        final BigDecimal PRICE = new BigDecimal(random.nextDouble() * 250 + 50);
+        //BigDecimal price = new BigDecimal(random.nextDouble() * 250 + 50).setScale(2, RoundingMode.DOWN);
 
-        Product product1 = new Product("Tablet", PRICE);
-        Product product2 = new Product("Spodnie", PRICE);
-        Product product3 = new Product("Buty", PRICE);
-        Product product4 = new Product("Koszula", PRICE);
-        Product product5 = new Product("Marynarka", PRICE);
+        Product product1 = new Product("Tablet", BigDecimal.valueOf(random.nextDouble() * 250 + 50).setScale(2, RoundingMode.DOWN));
+        Product product2 = new Product("Spodnie", BigDecimal.valueOf(random.nextDouble() * 250 + 50).setScale(2, RoundingMode.DOWN));
+        Product product3 = new Product("Buty", BigDecimal.valueOf(random.nextDouble() * 250 + 50).setScale(2, RoundingMode.DOWN));
+        Product product4 = new Product("Koszula", BigDecimal.valueOf(random.nextDouble() * 250 + 50).setScale(2, RoundingMode.DOWN));
+        Product product5 = new Product("Marynarka", BigDecimal.valueOf(random.nextDouble() * 250 + 50).setScale(2, RoundingMode.DOWN));
+
+        productList = new ArrayList<>();
+
         productList.add(product1);
         productList.add(product2);
         productList.add(product3);

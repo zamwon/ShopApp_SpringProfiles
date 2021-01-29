@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
+@Slf4j
 @Data
 @AllArgsConstructor
 @Component
-@Slf4j
 public class Cart {
 
     private ArrayList<Product> getProductList;
